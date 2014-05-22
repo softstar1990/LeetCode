@@ -24,9 +24,9 @@ public class Solution {
     	for (int i = start + 1; i <= s.length(); i++) {
     		String str = s.substring(start, i);
     		if (isPalindrome(str)) {
-    			partition.add(str);
-    			addPalindrome(s, i, partition, result);
-    			partition.remove(partition.size() - 1);
+    			ArrayList<String> curr = new ArrayList<String>(partition);
+    			curr.add(str);
+    			addPalindrome(s, i, curr, result);
     		}
     	}
     }
