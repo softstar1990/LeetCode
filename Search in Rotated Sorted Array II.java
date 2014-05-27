@@ -5,29 +5,28 @@ public class Solution {
         int len = A.length;
         
         // binary search
-        int l = 0;
-        int r = len - 1;
-        while(l <= r){
-            int m = (l + r) / 2;
-            if(target == A[m])
+        int start = 0;
+        int end = len - 1;
+        while(start <= end){
+            int mid = (start + end) / 2;
+            if(target == A[mid])
                 return true;
             
-            // lower is sorted
-            if(A[l] < A[m]){
-                if(A[l] <= target && target < A[m])
-                    r = m - 1;
+            
+            if(A[start] < A[mid]){  // lower is sorted
+                if(A[start] <= target && target < A[mid])
+                    end = mid - 1;
                 else{
-                    l = m + 1;
+                    start = mid + 1;
                 }
-            } else if(A[l] > A[m]) {
-                // upper is sorted
-                if(A[m] < target && target <= A[r]){
-                    l = m + 1;
+            } else if(A[start] > A[mid]) {  // upper is sorted
+               if(A[mid] < target && target <= A[end]){
+                    start = mid + 1;
                 } else{
-                    r = m - 1;
+                    end = mid - 1;
                 }
-            } else {
-                l = l + 1;
+            } else { //A[start] == A[mid] == A[end]
+                start = start + 1; 
             }
         }
         return false;
