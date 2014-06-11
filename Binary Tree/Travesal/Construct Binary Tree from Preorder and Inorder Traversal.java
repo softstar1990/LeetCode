@@ -9,16 +9,14 @@
  */
 public class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        if(preorder.length == 0){
-            return null;
-        }
+        if(preorder.length == 0) return null;
+        
         return rec(preorder, inorder, 0, preorder.length, 0, inorder.length);
     }
     
     public TreeNode rec(int[] preorder, int[] inorder, int preStart, int preEnd, int inStart, int inEnd){
-        if(preStart >= preorder.length || preEnd < 0){
-            return null;
-        }
+        if(preStart >= preorder.length || preEnd < 0) return null;
+
         TreeNode root = new TreeNode(preorder[preStart]);
         int rootIndex;
         for(rootIndex = inStart; rootIndex <= inEnd; rootIndex++ ){
