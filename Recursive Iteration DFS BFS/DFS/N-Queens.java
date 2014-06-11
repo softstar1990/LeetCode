@@ -1,19 +1,20 @@
 public class Solution {
     public ArrayList<String[]> solveNQueens(int n) {
-        ArrayList<String[]> res = new ArrayList<String[]>();
+        ArrayList<String[]> result = new ArrayList<String[]>();
         int[] loc = new int[n];
-        dfs(res,loc,0,n);
-        return res;
+        dfs(result,loc,0,n);
+        return result;
     }
     
-    public void dfs(ArrayList<String[]> res, int[] loc, int cur, int n){
+    public void dfs(ArrayList<String[]> result, int[] loc, int cur, int n){
         if(cur==n) 
-            printboard(res,loc,n);
+            printboard(result,loc,n);
         else{
             for(int i=0;i<n;i++){
                 loc[cur] = i;
-                if(isValid(loc,cur))
-                    dfs(res,loc,cur+1,n);
+                if(isValid(loc,cur)){
+                    dfs(result,loc,cur+1,n);
+                }
             }
         }
     }
@@ -26,7 +27,7 @@ public class Solution {
         return true;
     }
     
-    public void printboard(ArrayList<String[]> res, int[] loc, int n){
+    public void printboard(ArrayList<String[]> result, int[] loc, int n){
         String[] ans = new String[n];
         for(int i=0;i<n;i++){
             String row = new String();
@@ -36,6 +37,6 @@ public class Solution {
             }
             ans[i] = row;
         }
-        res.add(ans);
+        result.add(ans);
     }
 }
