@@ -16,8 +16,9 @@ public class Solution {
 	}
  
 	public int calculateSum(TreeNode root, int[] max) {
-		if (root == null)
-			return 0;
+		//this funtion return maxSum we can get from a path(from this root to leaf, but may not end with leaf)
+		//max[0] is used as global var, store the maxSum we ever get for the problem
+		if (root == null) return 0;
  
 		int left = calculateSum(root.left, max);
 		int right = calculateSum(root.right, max);

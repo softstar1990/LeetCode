@@ -7,39 +7,20 @@
  * }
  */
 public class Solution {
-	public void connect(TreeLinkNode root) {
-		if (root == null) {
-			return;
-		}
-
-		TreeLinkNode nextHead = null;
-		TreeLinkNode p = root;
-		TreeLinkNode pre = null;
-		while (p != null) {
-			if (p.left != null) {
-				if (pre == null) {
-					pre = p.left;
-					nextHead = pre;
-				} else {
-					pre.next = p.left;
-					pre = pre.next;
-				}
-			}
-			if (p.right != null) {
-				if (pre == null) {
-					pre = p.right;
-					nextHead = pre;
-				} else {
-					pre.next = p.right;
-					pre = pre.next;
-				}
-			}
-			p = p.next;
-			if (p == null) {
-				p = nextHead;
-				nextHead = null;
-				pre = null;
-			}
-		}
-	}
+    public void connect(TreeLinkNode root) {
+        if(root == null) return;
+        
+        TreeLinkNode dummy = new TreeLinkNode(-1);        
+        for(TreeLinkNode curr = root, prev = dummy; curr != null; curr = curr.next){
+            if(curr.left != null){
+                prev.next = curr.left;
+                prev = prev.next;
+            }
+            if(curr.right != null){
+                prev.next = curr.right;
+                prev = prev.next;
+            }
+        }
+        connect(dummy.next);
+    }
 }

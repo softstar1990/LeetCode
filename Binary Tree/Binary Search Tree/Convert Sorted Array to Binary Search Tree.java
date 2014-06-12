@@ -9,21 +9,17 @@
  */
 public class Solution {
     public TreeNode sortedArrayToBST(int[] num) {
-        int low = 0;
-        int high = num.length - 1;
-        
         if(num.length == 0) return null;
-        return rec(num, low, high);
+        return rec(num, 0, num.length);
     }
     
     public TreeNode rec(int[] num, int low, int high){
-        if(low == high) return new TreeNode(num[low]);
+        if(low == high) return null;
         
         int mid = (low + high) / 2;
         TreeNode root = new TreeNode(num[mid]);
-        
-        if(mid > low) root.left = rec(num, low, mid-1);       
-        if(mid < high) root.right = rec(num, mid+1, high);
+        root.left = rec(num, low, mid);       
+        root.right = rec(num, mid+1, high);
 
         return root;
     }

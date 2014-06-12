@@ -15,7 +15,7 @@ public class Solution {
     }  
       
     public static TreeNode rec(int[] inorder, int[] postorder, int inStart, int inEnd, int postStart, int postEnd){  
-        if(postEnd < 0 || postEnd>=postorder.length) return null;  
+        if(postEnd < 0 || postStart>=postorder.length) return null;  
           
         TreeNode root = new TreeNode(postorder[postEnd]);  
         int rootIndex;          // rootIndex in inorder[]  
