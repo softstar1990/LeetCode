@@ -1,3 +1,4 @@
+// Divide two integers without using multiplication, division and mod operator.
  public class Solution {
     public int divide(int dividend, int divisor) {
       if (divisor==0){
@@ -17,8 +18,7 @@
                 c <<= 1;
                 result += (1<<i);
                 i++;
-            }
-            
+            }           
         }
         if (dividend<0 && divisor>0 || dividend>0 && divisor<0){
             result=-result;

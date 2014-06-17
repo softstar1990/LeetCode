@@ -1,7 +1,9 @@
+// Given an array of strings, return all groups of strings that are anagrams.
+// Note: All inputs will be in lower-case.
 public class Solution {
     public ArrayList<String> anagrams(String[] strs) {
-        ArrayList<String> res = new ArrayList<String>();
-        if(strs == null || strs.length == 0) return res;
+        ArrayList<String> result = new ArrayList<String>();
+        if(strs == null || strs.length == 0) return result;
         
         HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
         for(int i=0; i<strs.length; i++){
@@ -21,8 +23,9 @@ public class Solution {
         Iterator iter = map.values().iterator();
         while(iter.hasNext()){
             ArrayList<String> item = (ArrayList<String>)iter.next();
-            if(item.size()>1) res.addAll(item);
+            if(item.size()>1) result.addAll(item);
         }
-        return res;
+        
+        return result;
     }
 }

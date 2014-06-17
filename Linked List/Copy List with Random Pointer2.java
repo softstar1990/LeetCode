@@ -1,3 +1,4 @@
+// A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.
 /**
  * Definition for singly-linked list with a random pointer.
  * class RandomListNode {
@@ -16,10 +17,10 @@ public class Solution {
         
         RandomListNode p = head;
         while(p.next != null){
-                RandomListNode temp = new RandomListNode(p.next.label);
-                map.put(p.next, temp);
-                map.get(p).next = map.get(p.next);
-                p = p.next;
+            RandomListNode temp = new RandomListNode(p.next.label);
+            map.put(p.next, temp);
+            map.get(p).next = map.get(p.next);
+            p = p.next;
         }
         
         p = head;

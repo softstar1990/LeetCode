@@ -1,3 +1,7 @@
+// Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+// For example,
+// [1,1,2] have the following unique permutations:
+// [1,1,2], [1,2,1], and [2,1,1].
 public class Solution {
 	public ArrayList<ArrayList<Integer>> permuteUnique(int[] num) {
 		Arrays.sort(num);
@@ -5,8 +9,7 @@ public class Solution {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		boolean[] visited = new boolean[num.length];
  
-		rec(result, list, num, visited);
- 
+		rec(result, list, num, visited); 
 		return result;
 	}
  
@@ -23,7 +26,6 @@ public class Solution {
 			if (visited[i]==true || (i!=0 && num[i] == num[i-1] && visited[i-1] == false)) {
 				continue;
 			}
- 
 			visited[i] = true;
 			list.add(num[i]);
 			rec(result, list, num, visited);

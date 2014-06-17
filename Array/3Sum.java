@@ -1,3 +1,7 @@
+// Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+// Note:
+//     • Elements in a triplet (a,b,c) must be in non-descending order. (ie, a ≤ b ≤ c)
+//     • The solution set must not contain duplicate triplets.
 public class Solution {
     public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
         ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
@@ -23,6 +27,7 @@ public class Solution {
                         start++;
                         end--;
                         
+                        //make sure no duplicates
                         while(start < end && num[end] == num[end+1]){
                             end--;
                         }

@@ -1,3 +1,13 @@
+// Given a binary tree, return the inorder traversal of its nodes' values.
+// For example:
+// Given binary tree {1,#,2,3},
+//    1
+//     \
+//      2
+//     /
+//    3
+// return [1,3,2].
+// Note: Recursive solution is trivial, could you do it iteratively?
 /**
  * Definition for binary tree
  * public class TreeNode {
@@ -10,13 +20,13 @@
 public class Solution {
     public ArrayList<Integer> inorderTraversal(TreeNode root) {
         
-        ArrayList<Integer> result = new ArrayList<Integer> ();
+        ArrayList<Integer> result = new ArrayList<Integer>();
         Stack<TreeNode> stack = new Stack<TreeNode>();
         
         if(root == null) return result;
         
         TreeNode curr = root;
-        while(!stack.empty() || curr != null){
+        while(!stack.isEmpty() || curr != null){
             if(curr != null){
                 stack.push(curr);
                 curr = curr.left;

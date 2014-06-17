@@ -1,3 +1,5 @@
+// Follow up for N-Queens problem.
+// Now, instead outputting board configurations, return the total number of distinct solutions.
 public class Solution {
     int result; //notice result is global
     public int totalNQueens(int n) {

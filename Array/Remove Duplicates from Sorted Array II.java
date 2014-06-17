@@ -1,3 +1,6 @@
+// Follow up for "Remove Duplicates":
+// What if duplicates are allowed at most twice?
+
 public class Solution {
     public int removeDuplicates(int[] A) {
         if(A.length < 3) return A.length;

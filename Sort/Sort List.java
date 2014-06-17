@@ -1,3 +1,4 @@
+// Sort a linked list using insertion sort.
 /**
  * Definition for singly-linked list.
  * class ListNode {
@@ -11,8 +12,8 @@
  */
 public class Solution {
 	public ListNode sortList(ListNode head) {
-		if (head == null || head.next == null)
-			return head;
+		if (head == null || head.next == null) return head;
+		
 		ListNode fast = head;
 		ListNode slow = head;
 		while (fast.next != null && fast.next.next != null) {

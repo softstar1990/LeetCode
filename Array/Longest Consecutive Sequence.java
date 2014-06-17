@@ -1,3 +1,4 @@
+// Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
 public class Solution {
     public int longestConsecutive(int[] num) {
     	HashSet<Integer> set = new HashSet<Integer>();

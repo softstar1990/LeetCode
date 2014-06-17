@@ -1,3 +1,4 @@
+// Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target? Find all unique quadruplets in the array which gives the sum of target.
 public class Solution {
     public ArrayList<ArrayList<Integer>> fourSum(int[] num, int target) {
     	Arrays.sort(num);
@@ -5,10 +6,12 @@ public class Solution {
     	HashSet<ArrayList<Integer>> hashSet = new HashSet<ArrayList<Integer>>();
     	ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
      
-    	for (int i = 0; i < num.length; i++) {第一个数
-    		for (int j = i + 1; j < num.length; j++) {第二个数
-    			int k = j + 1;第三个数
-    			int l = num.length - 1;第四个数
+    	for (int i = 0; i < num.length; i++) {//first number
+    		for (int j = i + 1; j < num.length; j++) {//second number
+                //for 1st 2nd number, we use brute force
+                //then we use 2 pointers for 3rd and 4th numbers
+    			int k = j + 1;
+    			int l = num.length - 1;
      
     			while (k < l) {
     				int sum = num[i] + num[j] + num[k] + num[l];
@@ -24,7 +27,7 @@ public class Solution {
     					temp.add(num[k]);
     					temp.add(num[l]);
      
-    					if (!hashSet.contains(temp)) {保证没有重复
+    					if (!hashSet.contains(temp)) {//unique quadruplets
     						hashSet.add(temp);
     						result.add(temp);
     					}

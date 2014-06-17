@@ -1,12 +1,16 @@
+// Write a program to solve a Sudoku puzzle by filling the empty cells.
+// Empty cells are indicated by the character '.'.
+// You may assume that there will be only one unique solution.
 public class Solution {
     public void solveSudoku(char[][] board) {
         ArrayList<Integer> empty = new ArrayList<Integer>();
-        for(int i=0;i<9;i++)
-            for(int j=0;j<9;j++)
+        for(int i=0;i<9;i++){
+            for(int j=0;j<9;j++){
                 if(board[i][j]=='.'){
                     empty.add(i*9+j);
                 }
-        
+            }
+        }
         dfs(empty,board,0,empty.size());
     }
     
