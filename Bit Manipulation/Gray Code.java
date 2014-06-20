@@ -15,7 +15,8 @@ public class Solution {
         result.add(0);
         for(int i=0;i<n;i++){
             int inc = 1<<i;
-            for(int j=result.size()-1;j>=0;j--){
+            //for each item in the result list, add inc
+            for(int j=result.size()-1;j>=0;j--){ 
                 result.add(result.get(j)+inc);
             }
         }
