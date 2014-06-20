@@ -10,24 +10,15 @@ public class Solution {
         maxR[A.length - 1] = A[A.length - 1];
         
         for(int i = 1; i < A.length; i++){
-            if(A[i]>maxL[i-1]){
-                maxL[i] = A[i];
-            }else{
-                maxL[i] = maxL[i-1];
-            }
-            
-            if(A[A.length - 1 - i] > maxR[A.length - i]){
-                maxR[A.length -i - 1] = A[A.length - i - 1]; 
-            }else{
-                maxR[A.length -i - 1] = maxR[A.length - i];
-            }
+            maxL[i] = Math.max(maxL[i-1], A[i]);
+            maxR[A.length -1 - i] = Math.max(maxR[A.length - i], A[A.length - 1 - i]);
         }
         
-        int result = 0;
-        for(int i = 0; i<A.length; i++){
-            result += ( Math.min(maxL[i], maxR[i]) - A[i] );
+        int count = 0;
+        for(int i = 1; i < A.length - 1; i++){
+            count += (Math.min(maxL[i], maxR[i]) - A[i]);
         }
         
-        return result;
+        return count;
     }
 }
