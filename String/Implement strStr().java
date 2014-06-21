@@ -1,18 +1,14 @@
-// Implement strStr().
-// Returns a pointer to the first occurrence of needle in haystack, or null if needle is not part of haystack.
+//Implement strStr().
+//Returns a pointer to the first occurrence of needle in haystack, or null if needle is not part of haystack.
 public class Solution {
     public String strStr(String haystack, String needle) {
-        int haystackLen = haystack.length();
-        int needleLen = needle.length();
+        int len1 = haystack.length();
+        int len2 = needle.length();
 
-        if(needleLen == 0) return haystack;
-
-        for (int i = 0; i < haystackLen - needleLen + 1 ; i++) {
-        	String temp = new String();
-        	temp = haystack.substring(i, i+needleLen);
-        	if (temp.equals(needle)) return haystack.substring(i);
+        for( int i = 0; i + len2 - 1 < len1; i++){
+            if(haystack.substring(i, i+len2).equals(needle)) return haystack.substring(i);
         }
-
+        
         return null;
     }
 }

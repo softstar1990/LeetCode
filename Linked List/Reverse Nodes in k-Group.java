@@ -49,10 +49,10 @@ public class Solution {
     	ListNode curr = head.next;
     	ListNode result = head.next;
     	while(curr.next != tail){
-    		ListNode next = curr.next;
+    		ListNode temp = curr.next;
     		curr.next = prev;
     		prev = curr;
-    		curr = next;
+    		curr = temp;
     	}
     	curr.next = prev;
     	head.next = curr;

@@ -1,5 +1,6 @@
 // Given an integer, convert it to a roman numeral.
 // Input is guaranteed to be within the range from 1 to 3999.
+import java.util.LinkedHashMap;
 public class Solution {
     private static LinkedHashMap<Integer, String> numToRoman = new LinkedHashMap<Integer, String>();
     static {

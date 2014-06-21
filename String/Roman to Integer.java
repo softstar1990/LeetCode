@@ -5,10 +5,9 @@ public class Solution {
         int result = 0;
         int current = 0;
         int prev = 0;
-        char[] chars = s.toCharArray();
-        
-        for(int i = (chars.length - 1) ; i >= 0; i--){
-            switch (chars[i]){
+
+        for(int i = s.length() - 1; i >= 0; i--){
+            switch (s.charAt(i)){
                 case 'M':
                     current = 1000;
                     break;
@@ -40,8 +39,6 @@ public class Solution {
                 result -= current;
             }
         }
-        
         return result;
-        
     }
 }
