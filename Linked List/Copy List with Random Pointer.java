@@ -1,6 +1,5 @@
-// A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.
-
-// Return a deep copy of the list.
+// A linked list is given such that each node contains an additional random pointer 
+// which could point to any node in the list or null.
 /**
  * Definition for singly-linked list with a random pointer.
  * class RandomListNode {
@@ -11,39 +10,30 @@
  */
 public class Solution {
     public RandomListNode copyRandomList(RandomListNode head) {
-     
-    	if (head == null)
-    		return null;
-     
-    	RandomListNode p = head;
-     
-    	// copy every node and insert to list
-    	while (p != null) {
-    		RandomListNode copy = new RandomListNode(p.label);
-    		copy.next = p.next;
-    		p.next = copy;
-    		p = copy.next;
-    	}
-     
-    	// copy random pointer for each new node
-    	p = head;
-    	while (p != null) {
-    		if (p.random != null)
-    			p.next.random = p.random.next;
-    		p = p.next.next;
-    	}
-     
-    	// break list to two
-    	p = head;
-    	RandomListNode newHead = head.next;
-    	while (p != null) {
-    		RandomListNode temp = p.next;
-    		p.next = temp.next;
-    		if (temp.next != null)
-    			temp.next = temp.next.next;
+        if(head == null) return null;
+        
+        RandomListNode newhead = new RandomListNode(head.label);
+        //create a map between original nodes and copied nodes
+        HashMap<RandomListNode,RandomListNode> map = new HashMap<RandomListNode,RandomListNode>();
+        map.put(head, newhead);
+        //deal with next pointer
+        RandomListNode p = head;
+        while(p.next != null){
+            RandomListNode temp = new RandomListNode(p.next.label);
+            map.put(p.next, temp);
+            map.get(p).next = map.get(p.next);
+            p = p.next;
+        }
+        //deal with random pointer
+        p = head;
+        while (p != null) {
+    		if (p.random != null){
+    			map.get(p).random = map.get(p.random);
+    		}else{
+    			map.get(p).random = null;
+    		}
     		p = p.next;
     	}
-     
-    	return newHead;
+        return newhead;
     }
 }
