@@ -15,7 +15,7 @@ public class Solution {
     }
     
     public TreeNode rec(int[] num, int low, int high){
-        if(low == high) return null;
+        if(low == high) return null; //high is not contained
         
         int mid = (low + high) / 2;
         TreeNode root = new TreeNode(num[mid]);

@@ -25,7 +25,7 @@ public class Solution {
 		if(start == end) return null;
 				
 		ListNode mid = start;			
-		ListNode probe = start;			
+		ListNode probe = start;//fast pointer			
 		while(probe!=end && probe.next!=end){
 			mid = mid.next;
 			probe = probe.next.next;

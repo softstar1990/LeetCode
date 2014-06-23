@@ -1,11 +1,12 @@
-// Given a binary tree, find the maximum path sum.
-// The path may start and end at any node in the tree.
-// For example:
-// Given the below binary tree,
-//        1
-//       / \
-//      2   3
-// Return 6.
+//Given a binary tree, find the maximum path sum.
+//The path may start and end at any node in the tree.
+//For example:
+//Given the below binary tree,
+//
+//       1
+//      / \
+//     2   3
+//Return 6.
 /**
  * Definition for binary tree
  * public class TreeNode {
@@ -32,7 +33,6 @@ public class Solution {
 		int right = calculateSum(root.right, max);
  
 		int current = Math.max(0, Math.max(left, right)) + root.val;
- 
 		max[0] = Math.max(max[0], Math.max(current, left + root.val + right));
  
 		return current;
