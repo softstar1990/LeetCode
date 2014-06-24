@@ -10,14 +10,11 @@ public class Solution {
         int[] result={-1,-1};
         
         int low=binarySearch(A,target-0.5);
+        if (low>=A.length||A[low]!=target) return result; 
         
-        if (low>=A.length||A[low]!=target){
-            return result;
-        }
         
         result[0]=low;
         result[1]=binarySearch(A,target+0.5)-1;
-        
         return result;
            
     }

@@ -15,18 +15,14 @@ public class Solution {
         int a = m-1, b = n-1;
         for(int iter = m+n-1; iter>=0; iter--){
             if(a < 0){
-                A[iter] = B[b];
-                b--;
+                A[iter] = B[b--];
             }else if(b < 0){
-                A[iter] = A[a];
-                a--;
+                A[iter] = A[a--];
             }else{
                 if(A[a]>=B[b]){
-                    A[iter] = A[a];
-                    a--;
+                    A[iter] = A[a--];
                 }else{
-                    A[iter] = B[b];
-                    b--;
+                    A[iter] = B[b--];
                 }
             }
         }
