@@ -5,24 +5,24 @@
 public class Solution {
 	public ArrayList<ArrayList<Integer>> permute(int[] num) {		
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-		ArrayList<Integer> list = new ArrayList<Integer>();
+		ArrayList<Integer> item = new ArrayList<Integer>();
  
-		rec(result, list, num);
+		rec(result, item, num);
 		return result;
 	}
  
  
-	private void rec(ArrayList<ArrayList<Integer>> result, ArrayList<Integer> list, int[] num) { 
-		if (list.size() == num.length) {
-			result.add(new ArrayList<Integer>(list));
+	private void rec(ArrayList<ArrayList<Integer>> result, ArrayList<Integer> item, int[] num) { 
+		if (item.size() == num.length) {
+			result.add(new ArrayList<Integer>(item));
 			return;
 		}	
 		for (int i = 0; i < num.length; i++) {
-			if (list.contains(num[i])) continue;
+			if (item.contains(num[i])) continue;
 			
-			list.add(num[i]);
-			rec(result, list, num);		
-			list.remove(list.size() - 1);
+			item.add(num[i]);
+			rec(result, item, num);		
+			item.remove(item.size() - 1);
 		}
 	}
 }

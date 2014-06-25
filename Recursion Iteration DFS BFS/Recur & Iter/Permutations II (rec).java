@@ -6,17 +6,16 @@ public class Solution {
 	public ArrayList<ArrayList<Integer>> permuteUnique(int[] num) {
 		Arrays.sort(num);
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-		ArrayList<Integer> list = new ArrayList<Integer>();
+		ArrayList<Integer> item = new ArrayList<Integer>();
 		boolean[] visited = new boolean[num.length];
  
-		rec(result, list, num, visited); 
+		rec(result, item, num, visited); 
 		return result;
 	}
  
- 
-	private void rec(ArrayList<ArrayList<Integer>> result, ArrayList<Integer> list, int[] num, boolean[] visited) { 
-		if (list.size() == num.length) {
-			result.add(new ArrayList<Integer>(list));
+ 	private void rec(ArrayList<ArrayList<Integer>> result, ArrayList<Integer> item, int[] num, boolean[] visited) { 
+		if (item.size() == num.length) {
+			result.add(new ArrayList<Integer>(item));
 			return;
 		}
  
@@ -27,9 +26,9 @@ public class Solution {
 				continue;
 			}
 			visited[i] = true;
-			list.add(num[i]);
-			rec(result, list, num, visited);
-			list.remove(list.size() - 1);
+			item.add(num[i]);
+			rec(result, item, num, visited);
+			item.remove(item.size() - 1);
 			visited[i] = false;
 		} 
 	}

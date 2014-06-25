@@ -15,19 +15,19 @@
 public class Solution {
     public ArrayList<ArrayList<Integer>> subsetsWithDup(int[] num) {
        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-       ArrayList<Integer> temp = new ArrayList<Integer>();
+       ArrayList<Integer> item = new ArrayList<Integer>();
        Arrays.sort(num);
-       result.add(temp);
-       rec(result,temp,num,0);
+       result.add(item);
+       rec(result,item,num,0);
        return result;
     }
     
-    public void rec(ArrayList<ArrayList<Integer>> result, ArrayList<Integer> temp, int[] num, int pos){
+    public void rec(ArrayList<ArrayList<Integer>> result, ArrayList<Integer> item, int[] num, int pos){
         for(int i=pos;i<=num.length-1;i++){
-            temp.add(num[i]);
-            result.add(new ArrayList<Integer>(temp));
-            rec(result,temp,num,i+1);
-            temp.remove(temp.size()-1);
+            item.add(num[i]);
+            result.add(new ArrayList<Integer>(item));
+            rec(result,item,num,i+1);
+            item.remove(item.size()-1);
             while(i<num.length-1 && num[i]==num[i+1]) i++;   //here is the only difference
         }
     }

@@ -21,7 +21,7 @@ public class Solution {
         return result;
     }
     
-    private void dfs(int[] candidates, int start, int target, ArrayList<Integer> item, ArrayList<ArrayList<Integer>> result){
+    private void dfs(int[] candidates, int pos, int target, ArrayList<Integer> item, ArrayList<ArrayList<Integer>> result){
         if(target<0){
             return;
         }else if(target == 0){
@@ -29,10 +29,8 @@ public class Solution {
             return;
         }
 
-        for(int i=start;i<candidates.length;i++){
-            if(i>start && candidates[i]==candidates[i-1]){ 
-                continue;
-            }
+        for(int i=pos;i<candidates.length;i++){
+            if(i>pos && candidates[i]==candidates[i-1]) continue;  
             item.add(candidates[i]);
             dfs(candidates,i+1,target-candidates[i],item,result);
             item.remove(item.size()-1);

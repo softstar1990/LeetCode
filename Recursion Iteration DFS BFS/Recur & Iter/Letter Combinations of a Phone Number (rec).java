@@ -14,16 +14,16 @@ public class Solution {
         return result;
     }
     
-    public void rec(ArrayList<String> result, int remain, String[] ss, String digits, StringBuffer sb ){
+    public void rec(ArrayList<String> result, int remain, String[] ss, String digits, StringBuffer item ){
         if(remain == 0){
-            result.add(sb.toString());
+            result.add(item.toString());
             return;
         }        
         String s = ss[digits.charAt(0)-'0'];        
         for(int i=0; i<s.length(); i++){  
-            sb = sb.append(s.charAt(i));  
-            rec(result, remain-1, ss, digits.substring(1), sb);  
-            sb.deleteCharAt(sb.length()-1); 
+            item = item.append(s.charAt(i));  
+            rec(result, remain-1, ss, digits.substring(1), item);  
+            item.deleteCharAt(item.length()-1); 
         }
     }
 }
