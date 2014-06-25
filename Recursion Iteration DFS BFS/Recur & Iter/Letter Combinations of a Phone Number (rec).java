@@ -10,19 +10,19 @@ public class Solution {
         String[] ss = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
         ArrayList<String> result = new ArrayList<String>();
         
-        rec(result, digits.length(), ss, digits, new StringBuffer());
+        rec(result, new StringBuffer(), 0, ss, digits);
         return result;
     }
     
-    public void rec(ArrayList<String> result, int remain, String[] ss, String digits, StringBuffer item ){
-        if(remain == 0){
+    public void rec(ArrayList<String> result, StringBuffer item, int pos, String[] ss, String digits ){
+        if(pos == digits.length()){
             result.add(item.toString());
             return;
         }        
-        String s = ss[digits.charAt(0)-'0'];        
+        String s = ss[digits.charAt(pos)-'0'];        
         for(int i=0; i<s.length(); i++){  
             item = item.append(s.charAt(i));  
-            rec(result, remain-1, ss, digits.substring(1), item);  
+            rec(result, item, pos+1, ss, digits);  
             item.deleteCharAt(item.length()-1); 
         }
     }
