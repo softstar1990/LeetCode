@@ -21,25 +21,22 @@ public class Solution {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode p = dummy;
-        for(int i = 1; i < m; i++)
+        for(int i = 0; i < m-1; i++){
             p = p.next;
-        //p is the node before the mth node
-        reverse(p.next, n - m + 1);
-        return dummy.next; 
+        }
+        reverse(p, n-m+1);
+        return dummy.next;
     }
     
-    //reverse get the first node of the part should reversed
-    //and the number in the part 
-    private ListNode reverse(ListNode head, int n){
-    	ListNode prev = null, tail = head.next;
-        //in each iteration, add 1 node to reversed list
+    private void reverse(ListNode head, int n){
+        ListNode prev = null, tail = head.next;
         for(int i = 0; i < n; i++){
             ListNode temp = head.next;
             head.next = head.next.next;
             temp.next = prev;
             prev = temp;
         }
-        tail.next = head.next;//link reversed list to rest of original list
-        head.next = prev;
+        tail.next = head.next;//link the new end to rest of original list
+        head.next = prev;//link the new head to rest of original list
     }
 }

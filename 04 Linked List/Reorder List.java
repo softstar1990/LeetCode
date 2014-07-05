@@ -14,10 +14,9 @@
  *     }
  * }
  */
-public class Solution {
+ public class Solution {
     public static void reorderList(ListNode head) {
 		if (head != null && head.next != null) {
- 
 			ListNode slow = head;
 			ListNode fast = head;
  
@@ -29,9 +28,7 @@ public class Solution {
  
 			ListNode second = slow.next;
 			slow.next = null;// need to close first part
- 
-			// reverse order for second part
-			second = reverseOrder(second);
+			second = reverseOrder(second); // reverse order for second part
  
 			ListNode p1 = head;
 			ListNode p2 = second;
@@ -51,13 +48,10 @@ public class Solution {
 	}
  
 	public static ListNode reverseOrder(ListNode head) {
+		if (head == null || head.next == null) return head;
  
-		if (head == null || head.next == null) {
-			return head;
-		}
- 
-		ListNode pre = head;
-		ListNode curr = head.next;
+		ListNode pre = null;
+		ListNode curr = head;
  
 		while (curr != null) {
 			ListNode temp = curr.next;
@@ -65,9 +59,6 @@ public class Solution {
 			pre = curr;
 			curr = temp;
 		}
- 
-		// set head node's next
-		head.next = null;
  
 		return pre;
 	}

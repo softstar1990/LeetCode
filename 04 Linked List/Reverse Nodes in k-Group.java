@@ -48,13 +48,12 @@ public class Solution {
     	ListNode prev = tail;
     	ListNode curr = head.next;
     	ListNode result = head.next;
-    	while(curr.next != tail){
+    	while(curr != tail){
     		ListNode temp = curr.next;
     		curr.next = prev;
     		prev = curr;
     		curr = temp;
     	}
-    	curr.next = prev;
     	head.next = curr;
     	return result;
     }
