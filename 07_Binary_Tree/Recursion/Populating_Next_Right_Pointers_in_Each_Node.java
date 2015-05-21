@@ -38,3 +38,23 @@ public class Solution {
         connect(root.right);
     }
 }
+
+//another solution without recursion
+public class Solution {
+    public void connect(TreeLinkNode root) {
+        TreeLinkNode ptr = root;
+        TreeLinkNode scanner = root;
+        
+        while(ptr != null && ptr.left != null){	//perfect binary tree, if ptr.left is null, then there is no next level
+            while(scanner != null && scanner.next != null){
+                scanner.left.next = scanner.right;
+                scanner.right.next = scanner.next.left;
+                scanner = scanner.next;
+            }
+            scanner.left.next = scanner.right;	//scanner is now at the rightmost node of current level
+            
+            ptr=ptr.left; //move to next level
+            scanner = ptr;
+        }
+    }
+}
